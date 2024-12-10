@@ -24,9 +24,10 @@ Puppet::Type.type(:zabbix_template).provide(:ruby, parent: Puppet::Provider::Zab
           deleteMissing: (@resource[:delete_missing_graphs].nil? ? false : @resource[:delete_missing_graphs]),
           updateExisting: true
         },
-        groups: {
-          createMissing: true
-        },
+# this object depreciated on zabbix 6+
+#        groups: {
+#          createMissing: true
+#        },
         httptests: {
           createMissing: true,
           deleteMissing: (@resource[:delete_missing_httptests].nil? ? false : @resource[:delete_missing_httptests]),
