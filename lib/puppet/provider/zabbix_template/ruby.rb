@@ -7,7 +7,7 @@ Puppet::Type.type(:zabbix_template).provide(:ruby, parent: Puppet::Provider::Zab
 
   def create
     zbx.configurations.import(
-      format: 'xml',
+      format: 'yaml',
       rules: {
         # application parameter was removed on Zabbix 5.4
         (@resource[:zabbix_version] =~ %r{[45]\.[02]} ? :applications : nil) => {
