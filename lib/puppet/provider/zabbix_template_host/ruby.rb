@@ -20,15 +20,13 @@ Puppet::Type.type(:zabbix_template_host).provide(:ruby, parent: Puppet::Provider
     @hostid ||= zbx.hosts.get_id(host: hostname)
   end
 
-  if (!template_id.null?)
-    def create
-      zbx.hosts.link_templates(
-      # mass_add depreciated in favor of link_templates for zabbix api 6.4
-      # zbx.templates.mass_add(
-        hosts_id: [hostid],
-        templates_id: [template_id]
-      )
-    end
+  def create
+    zbx.hosts.link_templates(
+    # mass_add depreciated in favor of link_templates for zabbix api 6.4
+    # zbx.templates.mass_add(
+      hosts_id: [hostid],
+      templates_id: [template_id]
+    )
   end
 
   def exists?
