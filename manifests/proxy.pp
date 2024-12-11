@@ -348,7 +348,7 @@ class zabbix::proxy (
       }
     }
 
-    zabbix::userparameters { 'Zabbix_Proxy': template => 'Template proxy health', }
+    #    zabbix::userparameters { 'Zabbix_Proxy': template => 'Template proxy health', }
   }
 
   # Get the correct database_type. We need this for installing the
