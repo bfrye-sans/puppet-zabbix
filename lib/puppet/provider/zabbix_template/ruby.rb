@@ -28,6 +28,21 @@ Puppet::Type.type(:zabbix_template).provide(:ruby, parent: Puppet::Provider::Zab
 #        groups: {
 #          createMissing: true
 #        },
+        host_groups: {
+          createMissing: true,
+          deleteMissing: (@resource[:delete_missing_host_groups].nil? ? false : @resource[:delete_missing_host_groups]),
+          updateExisting: true,
+        },
+        template_groups: {
+          createMissing: true,
+          deleteMissing: (@resource[:delete_missing_template_groups].nil? ? false : @resource[:delete_missing_template_groups]),
+          updateExisting: true,
+        },
+        hosts: {
+          createMissing: true,
+          deleteMissing: (@resource[:delete_missing_hosts].nil? ? false : @resource[:delete_missing_hosts]),
+          updateExisting: true,
+        },
         httptests: {
           createMissing: true,
           deleteMissing: (@resource[:delete_missing_httptests].nil? ? false : @resource[:delete_missing_httptests]),
@@ -51,6 +66,11 @@ Puppet::Type.type(:zabbix_template).provide(:ruby, parent: Puppet::Provider::Zab
           createMissing: true,
           updateExisting: true
         },
+        mediaTypes: {
+          createMissing: true,
+          deleteMissing: (@resource[:delete_missing_mediatypes].nil? ? false : @resource[:delete_missing_mediatypes]),
+          updateExisting: true,
+        },
         templateLinkage: {
           createMissing: true
         },
@@ -58,8 +78,7 @@ Puppet::Type.type(:zabbix_template).provide(:ruby, parent: Puppet::Provider::Zab
           createMissing: true,
           updateExisting: true
         },
-        # templateDashboards was renamed to templateScreen on Zabbix >= 5.2
-        (@resource[:zabbix_version] =~ %r{5\.[24]|6\.0} ? :templateDashboards : :templateScreens) => {
+        templateDashboards: {
           createMissing: true,
           deleteMissing: (@resource[:delete_missing_templatescreens].nil? ? false : @resource[:delete_missing_templatescreens]),
           updateExisting: true

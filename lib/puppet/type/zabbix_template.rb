@@ -58,12 +58,28 @@ Puppet::Type.newtype(:zabbix_template) do
     desc 'Delete graphs from zabbix which are not in the template.'
   end
 
+  newparam(:delete_missing_host_groups, boolean: true) do
+    desc 'Delete host groups from zabbix which are not in the template.'
+  end
+
+  newparam(:delete_missing_template_groups, boolean: true) do
+    desc 'Delete template groups from zabbix which are not in the template.'
+  end
+
+  newparam(:delete_missing_hosts, boolean: true) do
+    desc 'Delete hosts from zabbix which are not in the template.'
+  end
+
   newparam(:delete_missing_httptests, boolean: true) do
     desc 'Delete web scenarios from zabbix which are not in the template.'
   end
 
   newparam(:delete_missing_items, boolean: true) do
     desc 'Delete items from zabbix which are not in the template.'
+  end
+
+  newparam(:delete_missing_mediatypes, boolean: true) do
+    desc 'Delete media types from zabbix which are not in the template.'
   end
 
   newparam(:delete_missing_templatescreens, boolean: true) do
