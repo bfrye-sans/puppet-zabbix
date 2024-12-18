@@ -30,17 +30,14 @@ Puppet::Type.type(:zabbix_template).provide(:ruby, parent: Puppet::Provider::Zab
 #        },
         host_groups: {
           createMissing: true,
-          deleteMissing: false,
           updateExisting: true,
         },
         template_groups: {
           createMissing: true,
-          deleteMissing: false,
           updateExisting: true,
         },
         hosts: {
           createMissing: true,
-          deleteMissing: false,
           updateExisting: true,
         },
         httptests: {
@@ -68,7 +65,6 @@ Puppet::Type.type(:zabbix_template).provide(:ruby, parent: Puppet::Provider::Zab
         },
         mediaTypes: {
           createMissing: true,
-          deleteMissing: false,
           updateExisting: true,
         },
         templateLinkage: {
