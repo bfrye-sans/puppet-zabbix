@@ -30,17 +30,17 @@ Puppet::Type.type(:zabbix_template).provide(:ruby, parent: Puppet::Provider::Zab
 #        },
         host_groups: {
           createMissing: true,
-          deleteMissing: (@resource[:delete_missing_host_groups].nil? ? false : @resource[:delete_missing_host_groups]),
+          deleteMissing: false,
           updateExisting: true,
         },
         template_groups: {
           createMissing: true,
-          deleteMissing: (@resource[:delete_missing_template_groups].nil? ? false : @resource[:delete_missing_template_groups]),
+          deleteMissing: false,
           updateExisting: true,
         },
         hosts: {
           createMissing: true,
-          deleteMissing: (@resource[:delete_missing_hosts].nil? ? false : @resource[:delete_missing_hosts]),
+          deleteMissing: false,
           updateExisting: true,
         },
         httptests: {
