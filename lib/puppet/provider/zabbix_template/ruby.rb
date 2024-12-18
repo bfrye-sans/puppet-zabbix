@@ -68,7 +68,7 @@ Puppet::Type.type(:zabbix_template).provide(:ruby, parent: Puppet::Provider::Zab
         },
         mediaTypes: {
           createMissing: true,
-          deleteMissing: (@resource[:delete_missing_mediatypes].nil? ? false : @resource[:delete_missing_mediatypes]),
+          deleteMissing: false,
           updateExisting: true,
         },
         templateLinkage: {
